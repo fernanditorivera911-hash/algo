@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa Anchoa · Taberna de mar en Cádiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1F3FBF; --blue-ink:#F7F9FC;
+  --paper:#F7F9FC; --ink:#12183A; --muted:#4A5280;
+  --lemon:#F2D230; --tomato:#E0412F; --line:#C9D1EE;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --blue:#2B4FD8; --paper:#0E1330; --ink:#EEF1FF; --muted:#A9B2E0; --line:#2A3366;
+  }
+}
+:root[data-theme="dark"]{--blue:#2B4FD8;--paper:#0E1330;--ink:#EEF1FF;--muted:#A9B2E0;--line:#2A3366}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tomato);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.5rem}
+
+/* Hero */
+.hero{background:var(--blue);color:var(--blue-ink);position:relative;overflow:hidden}
+.hero nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;font-weight:500}
+.hero nav a{text-decoration:none;margin-left:1.25rem}
+.hero nav a:first-child{margin-left:0}
+.hero nav a:hover{text-decoration:underline}
+.hero h1{font:800 clamp(4.5rem,17vw,12rem)/.82 var(--display);letter-spacing:-.045em;margin:3rem 0 0}
+.hero .sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:2rem;padding:2rem 0 3.5rem}
+.hero p{max-width:30ch;margin:0;font-size:1.25rem;line-height:1.45}
+.sticker{background:var(--lemon);color:#12183A;border-radius:50%;width:9.5rem;height:9.5rem;display:grid;place-items:center;text-align:center;font:800 1rem/1.15 var(--display);transform:rotate(-9deg);padding:1rem}
+.btn{display:inline-block;background:var(--lemon);color:#12183A;font:800 1rem var(--display);padding:.9rem 1.6rem;border-radius:999px;border:0;text-decoration:none;cursor:pointer}
+.btn:hover{background:#fff}
+
+/* Secciones */
+section{padding:4.5rem 0}
+h2{font:800 clamp(2.2rem,5vw,3.4rem)/1 var(--display);letter-spacing:-.03em;margin:0 0 2rem}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.intro p{margin:0 0 1rem;max-width:52ch}
+.facts{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.facts li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.facts span:last-child{font-weight:500;text-align:right}
+
+/* Carta */
+.carta{background:var(--ink);color:var(--paper)}
+:root[data-theme="dark"] .carta{background:#070A1C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .carta{background:#070A1C}}
+.carta h2{color:var(--lemon)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.cols h3{font:800 1.4rem var(--display);margin:0 0 1rem;color:var(--lemon)}
+.dish{padding:.9rem 0;border-bottom:1px dashed rgba(247,249,252,.3)}
+.dish .row{display:flex;justify-content:space-between;gap:1rem;font-weight:500}
+.dish .price{font-family:var(--display);font-weight:800;white-space:nowrap}
+.dish p{margin:.15rem 0 0;font-size:.95rem;opacity:.75;line-height:1.45}
+.note{margin-top:2.5rem;font-size:.95rem;opacity:.75}
+
+/* Reserva */
+.reserva{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.fields{display:grid;gap:1rem}
+label{display:grid;gap:.35rem;font-weight:500}
+input,select{font:inherit;color:var(--ink);background:transparent;border:2px solid var(--ink);border-radius:10px;padding:.7rem .85rem;width:100%}
+input::placeholder{color:var(--muted)}
+.fields .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn.dark{background:var(--tomato);color:#fff;justify-self:start}
+.btn.dark:hover{background:var(--ink)}
+#ok{min-height:1.6em;font-weight:500;margin:.25rem 0 0}
+.hours{list-style:none;margin:0 0 1.5rem;padding:0;border-top:2px solid var(--ink)}
+.hours li{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.hours .closed{color:var(--tomato);font-weight:500}
+
+footer{background:var(--blue);color:var(--blue-ink);padding:2.5rem 0 3rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer b{font:800 1.6rem var(--display);letter-spacing:-.03em}
+
+@media (max-width:800px){
+  .intro,.reserva,.cols{grid-template-columns:1fr;gap:2.5rem}
+  .hero nav a{margin-left:.9rem;font-size:.95rem}
+  section{padding:3.25rem 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <span>Taberna de mar</span>
+      <span><a href="#carta">Carta</a><a href="#reserva">Reservar</a><a href="#visita">Horarios</a></span>
+    </nav>
+    <h1>Casa<br>Anchoa</h1>
+    <div class="sub">
+      <p>Pescado de la lonja, conservas de las buenas y arroces que se piden antes de sentarse.</p>
+      <div class="sticker">Cocina<br>abierta<br>hasta las<br>00:00</div>
+      <a class="btn" href="#reserva">Reservar mesa</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap intro">
+      <div>
+        <h2>Una barra, doce mesas y la lonja a cinco minutos.</h2>
+        <p>Casa Anchoa abrió en 2014 en un antiguo almacén de sal del barrio de la Viña. Compramos cada mañana lo que entra en el puerto y cocinamos lo que haya: si no ha llegado, no está en la carta.</p>
+        <p>Las anchoas las limpiamos a mano. El pan de cristal llega de la panadería de la esquina a las ocho y a las nueve ya está en la mesa.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Sitio</span><span>Calle del Mar, 14 · Cádiz</span></li>
+        <li><span>Aforo</span><span>12 mesas y barra</span></li>
+        <li><span>Terraza</span><span>Sí, con toldo</span></li>
+        <li><span>Sin gluten</span><span>Avísanos al reservar</span></li>
+        <li><span>Perros</span><span>Bienvenidos en terraza</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="carta" id="carta">
+    <div class="wrap">
+      <h2>La carta de hoy</h2>
+      <div class="cols">
+        <div>
+          <h3>Para picar</h3>
+          <div class="dish"><div class="row"><span>Anchoas del Cantábrico</span><span class="price">14 €</span></div><p>Con pan de cristal y tomate rallado.</p></div>
+          <div class="dish"><div class="row"><span>Ensaladilla con ventresca</span><span class="price">9 €</span></div><p>La receta de la abuela de Lola.</p></div>
+          <div class="dish"><div class="row"><span>Tortillitas de camarones</span><span class="price">8 €</span></div><p>Finas, crujientes, de una en una.</p></div>
+        </div>
+        <div>
+          <h3>Del mar</h3>
+          <div class="dish"><div class="row"><span>Arroz meloso de calamar</span><span class="price">19 €</span></div><p>Mínimo dos personas, 25 minutos.</p></div>
+          <div class="dish"><div class="row"><span>Pescado del día a la sal</span><span class="price">38 €</span></div><p>Para compartir entre dos. Preguntad cuál ha llegado.</p></div>
+          <div class="dish"><div class="row"><span>Fritura de la bahía</span><span class="price">17 €</span></div><p>Pescaíto, adobo y limón.</p></div>
+        </div>
+        <div>
+          <h3>Para acabar</h3>
+          <div class="dish"><div class="row"><span>Tarta de queso</span><span class="price">6 €</span></div><p>Cremosa, quemada por fuera.</p></div>
+          <div class="dish"><div class="row"><span>Torrija caramelizada</span><span class="price">6,50 €</span></div><p>Con helado de vainilla.</p></div>
+          <div class="dish"><div class="row"><span>Moscatel de la casa</span><span class="price">4 €</span></div><p>Copa pequeña, bien fría.</p></div>
+        </div>
+      </div>
+      <p class="note">Los precios incluyen IVA. Si tienes alergias, díselo a quien te atienda antes de pedir.</p>
+    </div>
+  </section>
+
+  <section id="reserva">
+    <div class="wrap reserva">
+      <div>
+        <h2>Reserva tu mesa</h2>
+        <form class="fields" id="f">
+          <label>Nombre<input id="n" required placeholder="Tu nombre"></label>
+          <div class="two">
+            <label>Día<input id="d" type="date" required></label>
+            <label>Hora
+              <select id="h">
+                <option>13:30</option><option>14:00</option><option>14:30</option>
+                <option>20:30</option><option>21:00</option><option>21:30</option>
+              </select>
+            </label>
+          </div>
+          <label>Personas
+            <select id="p"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+          </label>
+          <button class="btn dark" type="submit">Reservar mesa</button>
+          <p id="ok" role="status"></p>
+        </form>
+      </div>
+      <div id="visita">
+        <h2>Horarios</h2>
+        <ul class="hours">
+          <li><span>Martes a jueves</span><span>13:00–16:00 · 20:00–23:30</span></li>
+          <li><span>Viernes y sábado</span><span>13:00–16:30 · 20:00–00:00</span></li>
+          <li><span>Domingo</span><span>13:00–17:00</span></li>
+          <li><span>Lunes</span><span class="closed">Cerrado</span></li>
+        </ul>
+        <p>Para grupos de más de seis, escríbenos a <a href="mailto:hola@casaanchoa.example">hola@casaanchoa.example</a> o llama al 956 00 00 00.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Casa Anchoa</b>
+    <span>Calle del Mar, 14 · Cádiz · Una web inventada para probar.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('f'),ok=document.getElementById('ok'),d=document.getElementById('d');
+  try{d.min=new Date().toISOString().split('T')[0]}catch(e){}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var p=document.getElementById('p').value;
+    ok.textContent='Reservado: '+document.getElementById('n').value+', '+p+(p==='1'?' persona':' personas')+', '+d.value+' a las '+document.getElementById('h').value+'.';
+  });
+})();
+</script>
+</body>
+</html>
